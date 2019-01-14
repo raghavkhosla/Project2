@@ -1,0 +1,821 @@
+<html>
+<head>
+	<title>PRODUCTS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css" />
+	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+<style>
+.filterDiv 
+{
+  float: left;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+.show 
+{
+  display: block;
+}
+.our_products img
+{
+  height: 220px;
+}
+</style>
+
+<script>
+    function change() {
+        let results = Array.from(document.querySelectorAll('.result > div')),
+            modelsChecked = document.querySelectorAll('.filter input.models:checked'),
+            ratedChecked = document.querySelectorAll('.filter input.rated:checked');
+
+if(modelsChecked){
+	results.forEach(function(result) {
+			result.style.display = 'none';
+	});
+}
+
+if(modelsChecked==false){
+	results.forEach(function(result) {
+			result.style.display = 'block';
+	});
+}
+	  filterModels(modelsChecked);
+        function filterModels(modelsChecked) {
+            results = Array.from(modelsChecked).reduce(function(sum, input) {
+                const attrib = input.getAttribute('rel');
+                return sum.concat(results.filter(function(result) {
+                    return result.classList.contains(attrib);
+                }));
+            }, []);
+        }
+        // Show those filtered results:
+        results.forEach(function(result) {
+            result.style.display = 'block';
+        });
+    }
+    change();
+    </script>
+</head>
+<body>
+
+
+<section id="header1">
+    <div class="container-fluid bg-store">
+        <div class="container p-0">
+            <div class="row pt-0">
+                <div class="col-md-4">
+                    <div class="row">
+
+                        <div class="col-md-6 lang-type">
+                            <div class="dropdown pt-1">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Language
+                                </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">English</a>
+                                        <a class="dropdown-item" href="#">Hindi</a>
+                                        <a class="dropdown-item" href="#">German</a>
+                                        <a class="dropdown-item" href="#">Chinese</a>
+                                        <a class="dropdown-item" href="#">Japanese</a>
+                                        <a class="dropdown-item" href="#">Swedish</a>
+                                        <a class="dropdown-item" href="#">Arabic</a>
+                                        <a class="dropdown-item" href="#">Norwegian</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 curr-type">
+                            <div class="dropdown pt-1">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Currency
+                                </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">INR</a>
+                                        <a class="dropdown-item" href="#">Euro</a>
+                                        <a class="dropdown-item" href="#">CNY</a>
+                                        <a class="dropdown-item" href="#">JPY</a>
+                                        <a class="dropdown-item" href="#">SEK</a>
+                                        <a class="dropdown-item" href="#">DH</a>
+                                        <a class="dropdown-item" href="#">NOK</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 p-0 pl-1">
+                    <ul class="nav justify-content-end demo reglogincont">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="javascript:void();" data-toggle="modal" data-target="#modal1" data-whatever="@getbootstrap">SIGN IN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="javascript:void();" data-toggle="modal" data-target="#modal2" data-whatever="@getbootstrap">SIGN UP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="faq.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="contactus.html">CONTACT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="header2">
+    <div class="container-fluid">
+        <div class="container p-0">
+            <div class="row pt-3">
+                <div class="col-md-3 logo">
+                    <h2><strong style="cursor: pointer;"><a href="index.html" style="text-decoration: none;">E-store</a></strong></h2>
+                </div>
+
+                <div class="col-md-8">
+                    <form class="p-0">
+                        <div class="form-group">
+                            <div class="row p-0">
+                                <div class="col-md-11 m-0 p-0 search_products">
+                                    <input type="text" class="form-control " placeholder="Search for products"  size="100"/>
+                                </div>
+                                <div class="col-md-1 m-0 p-0 search">
+                                    <a href="javascript:void();" class="btn btn-lg"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-1 text-right cart">
+                    <a href="#" class="btn btn-lg"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="header3">
+    <div class="container-fluid bg-store">
+        <div class="container p-0">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="dropdown pt-2 pb-2">
+                    <button class="btn btn-light btn-sm dropdown-toggle text-uppercase p-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product categories
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Electronics</a>
+                            <a class="dropdown-item" href="#">TVs & Appliances</a>
+                            <a class="dropdown-item" href="#">Men</a>
+                            <a class="dropdown-item" href="#">Women</a>
+                            <a class="dropdown-item" href="#">Baby & Kids</a>
+                            <a class="dropdown-item" href="#">Home & Furniture</a>
+                            <a class="dropdown-item" href="#">Sports, Books & More</a>
+                            <a class="dropdown-item" href="#">Offer Zone</a>
+                        </div>
+                </div>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item pl-4">
+                                <a class="nav-link text-white" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link active text-white" href="products.html">PRODUCTS</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link disabled active text-white" href="single_product.html">SINGLE PRODUCT</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link active text-white" href="blog.html">BLOG</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link disabled active text-white" href="checkout.html">CHECKOUT</a>
+                            </li>
+                        </ul>
+                    </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section id="products">
+	<div class="container">
+		<div class="row pt-4">
+			<div class="col-md-3" id="sidebar">
+				<div class="filter">
+			 		<h3>Product Filter</h3>
+	                    <div class="categories card p-2 mb-2">
+                            <h3 class="lead m-0">Select category</h3>
+		                    <hr>
+		                        <div class="checkbox">
+			                        <label><input type="checkbox" rel="fashion" class="models" onchange="change();"/>Fashion</label>
+		                        </div>
+		                        <div class="checkbox">
+			                        <label><input type="checkbox" rel="mobile&electronic" class="models" onchange="change();"/>Mobile/Electronics</label>
+		                        </div>
+		                        <div class="checkbox">
+                        			<label><input type="checkbox" rel="health&fitness" class="models"  onchange="change();"/>Health and fitness</label>
+                        		</div>
+                        		 <div class="checkbox">
+                        			<label><input type="checkbox" rel="home&decor" class="models"  onchange="change();"/>Home decor</label>
+                        		</div>
+                        		<div class="checkbox">
+                        			<label><input type="checkbox" rel="technologies" class="models"  onchange="change();"/>Latest technologies </label>
+                        		</div>
+                        		 <div class="checkbox">
+                        			<label><input type="checkbox" rel="kids" class="models"  onchange="change();"/>Kids</label>
+                        		</div>
+	                    </div>
+
+                    	<div class="rated card p-2">
+                    		<h3 class="lead m-0">Product Rated</h3>
+                    		<hr>
+                    		    <div class="checkbox">
+                    			    <label><input type="checkbox" rel="Featured" class="models" onchange="change();"/>Featured</label>
+                    		    </div>
+                    		    <div class="checkbox">
+                    			    <label><input type="checkbox" rel="new" class="models" onchange="change();"/>New Product</label>
+                    		    </div>
+                    	</div>
+                </div>
+			</div>
+
+			<div class="col-md-9 text-dark">
+			    <div class="card-deck result text-dark">
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion">
+                        <img class="card-img-top" src="images/image29.jpg"  alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">HUAWEI Honor MagicBook Laptop 8GB RAM</h5>
+                                <p class="card-text"><p class="item-price"><strike>$834.37</strike> <span>$699.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion">
+                        <img class="card-img-top" src="images/image30.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Turn-Down Collar Epaulet Design Double Breasted</h5>
+                                <p class="card-text"><p class="item-price"> <span>$42.28</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic Featured">
+                        <img class="card-img-top" src="images/image31.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">XIAOMI CHUANGMI 720P Smart Camera IR</h5>
+                                <p class="card-text"><p class="item-price"><strike>$26.63</strike> <span>$17.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion Featured">
+                        <img class="card-img-top" src="images/image32.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Stand Collar Leatherette Biker Jacket - International Version</h5>
+                                <p class="card-text"><p class="item-price"><strike>$65.36</strike> <span>$37.05</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion Featured">
+                        <img class="card-img-top" src="images/image33.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">HUAWEI Honor V10 4G Phablet 128GB ROM</h5>
+                                <p class="card-text"><p class="item-price"> <span>$378.53</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion new">
+                        <img class="card-img-top" src="images/image34.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Kenancy Womens Elegant Sleeveless Style</h5>
+                                <p class="card-text"><p class="item-price"><strike>$19.05</strike> <span>$13.98</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic">
+                        <img class="card-img-top" src="images/image35.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">QZSD Q111 4.8ft Aluminum Alloy Camera</h5>
+                                <p class="card-text"><p class="item-price"> <span>$40.77</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic">
+                        <img class="card-img-top" src="images/image36.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">ALLDOCUBE C5 4G Phablet - DARK GRAY</h5>
+                                <p class="card-text"><p class="item-price"><strike>$137.26</strike> <span>$99.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products technologies new">
+                        <img class="card-img-top" src="images/image37.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">FIIDO D2 Folding Moped Electric Bike E-bike</h5>
+                                <p class="card-text"><p class="item-price"><strike>$661.85</strike> <span>$459.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion">
+                        <img class="card-img-top" src="images/image38.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">White shirt (Slim fit) with Army green casual</h5>
+                                <p class="card-text"><p class="item-price"><strike>$56.10</strike> <span>$17.65</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+												
+                    <div class="col-md-3 bg-white p-2 our_products technologies Featured">
+						<img class="card-img-top" src="images/image39.jpg" alt="Card image cap">
+						    <div class="card-body">
+								<h5 class="card-title">Apple Watch Series 4 Color - Black</h5>
+							    <p class="card-text"><p class="item-price"><strike>$450.00</strike> <span>$400.65</span></p></p>
+								<div class="star-rating">
+									<ul class="list-inline">
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+									</ul>
+								</div>
+								<a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+							</div>
+				    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic new">
+                        <img class="card-img-top" src="images/image40.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Teclast X22 Air All-in-one PC Desktop - WHITE</h5>
+                                <p class="card-text"><p class="item-price"> <span>$358.53</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic">
+                        <img class="card-img-top" src="images/image41.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Icomon i31 Bluetooth 4.0 Body Fat Scale</h5>
+                                <p class="card-text"><p class="item-price"><strike>$31.25</strike> <span>$29.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic">
+                        <img class="card-img-top" src="images/image42.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Xiaomi Redmi Note 5 4G Phablet</h5>
+                                <p class="card-text"><p class="item-price"><strike>$270.83</strike> <span>$189.99</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products mobile&electronic">
+                        <img class="card-img-top" src="images/image43.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">7060B 7 inch Car Audio Stereo MP5 Player</h5>
+                                <p class="card-text"><p class="item-price"><strike>$61.80</strike> <span>$45.99</span></p></p>
+                                <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3 bg-white p-2 our_products fashion">
+                        <img class="card-img-top" src="images/image44.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Breasted Design Double Pockets Cardigan</h5>
+                                <p class="card-text"><p class="item-price"><strike>$44.23</strike> <span>$32.65</span></p></p>
+                                <div class="star-rating">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+                            </div>
+                    </div>
+					
+                    <div class="col-md-3 bg-white p-2 our_products home&decor">
+						<img class="card-img-top" src="images/image45.jpg" alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">Nakamura Study Table by Mintwud</h5>
+								<p class="card-text"><p class="item-price"><strike>$160.23</strike> <span>$150.65</span></p></p>
+								<div class="star-rating">
+									<ul class="list-inline">
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+									</ul>
+								</div>
+							    <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+							</div>
+					</div>
+
+				    <div class="col-md-3 bg-white p-2 our_products health&fitness">
+						<img class="card-img-top" src="images/image46.jpeg" alt="Card image cap">
+						    <div class="card-body">
+								<h5 class="card-title">Optimum Nutrition Gold Standard 100% Whey Protein</h5>
+								<p class="card-text"><p class="item-price"> <span>$250.65</span></p></p>
+								<div class="star-rating">
+									<ul class="list-inline">
+    									<li class="list-inline-item"><i class="fa fa-star"></i></li>
+    									<li class="list-inline-item"><i class="fa fa-star"></i></li>
+    									<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+    									<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+    									<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+									</ul>
+								</div>
+							    <a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+							</div>
+					</div>
+
+
+					<div class="col-md-3 bg-white p-2 our_products kids">
+						<img class="card-img-top" src="images/image47.jpg" alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">Luvlap Grand Baby Stroller (Black)</h5>
+							    <p class="card-text"><p class="item-price"><strike>$60.23</strike> <span>$50.65</span></p></p>
+							    <div class="star-rating">
+									<ul class="list-inline">
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+									</ul>
+								</div>
+								<a href="#" class="btn bg-store text-white text-center">ADD TO CART</a>
+							</div>
+					</div>
+                </div>
+			</div>
+        </div>
+    </div>
+</section>
+
+
+<section id="footer1">
+    <div class="container-fluid pb-4 mt-5 bg-store">
+        <div class="container">
+            <div class="row pt-4">
+
+                <div class="col-md-3">
+                    <h5 class="text-dark">HELP</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="contactus.html" class="text-light">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="faq.html" class="text-light">FAQs</a>
+                            </li>
+                        </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-dark">POLICY</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="return.html" class="text-light">Return Policy</a>
+                            </li>
+                            <li>
+                                <a href="term&condition.html" class="text-light">Terms of Use</a>
+                            </li>
+                        </ul>
+                </div>
+
+                <div class="col-md-3 social-icon">
+                    <h5 class="text-dark">SOCIAL</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="#" class="text-light "><i class="fa fa-facebook mr-2"></i>Facebook</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-center"><i class="fa fa-twitter mr-1"></i>Twitter</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-instagram mr-1"></i> Instagram</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-google mr-1"></i> Google</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-newspaper-o"></i> Press</a>
+                            </li>
+                        </ul>
+                </div>
+
+                 <div class="col-md-3">
+                    <h5 class="text-dark">Registered Office Address</h5>
+                    <p class="text-light">
+                        E-Store Private Limited,<br/>
+                        Sector 42D, Chandigarh - 160042
+                        India<br/>
+                        CIN : U552551109KA20 <br/>
+                        Telephone: <a href="#" class="text-white">0000-005-055</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="footer2">
+    <div class="container-fluid bg-store">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-md-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <i class="fa fa-briefcase fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Sell Here</a>
+                        </li>
+                        <li class="list-inline-item" >
+                            <i class="fa fa-star fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Advertise</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="fa fa-gift fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Gift Cards</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="fa fa-question-circle fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Help</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-7 text-right pt-2 pay-mode">
+                    <img class="text-right img-fluid" src="images/image4.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter your email and password to<strong> sign in</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                         <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email address">EMAIL*</label>
+                                    <input type="text" class="form-control" placeholder="Enter your email address here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">PASSWORD*</label>
+                                    <input type="password" class="form-control" placeholder="Enter your password here... " />
+                                </div>
+
+                                <a href="#" class="forgpwd">Forgot password? Click here.</a>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <input type="submit" class="btn bg-store btn-lg text-white mt-3" value="SIGN IN" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel1">Create an account to<strong> sign up</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="first name">FIRST NAME*</label>
+                                    <input type="text" class="form-control" placeholder="Your first name here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="last name">LAST NAME*</label>
+                                    <input type="text" class="form-control" placeholder="Your last name here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email id">EMAIL*</label>
+                                    <input type="text" class="form-control" placeholder="Your email address here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mobile number">MOBILE*</label>
+                                    <input type="text" class="form-control" placeholder="Your mobile number here " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">RESIDENTIAL ADDRESS*</label>
+                                    <input type="text" class="form-control" placeholder="Your home address here " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="country">COUNTRY*</label>
+                                    <input type="text" class="form-control" placeholder="Your country here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="user id">USER ID*</label>
+                                    <input type="text" class="form-control" placeholder="User id here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">CREATE PASSWORD*</label>
+                                    <input type="text" class="form-control" placeholder="Set new password here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">RETYPE PASSWORD*</label>
+                                    <input type="text" class="form-control" placeholder="Confirm password here... " />
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-md-12 text-center">
+                                        <input type="submit" class="btn btn-lg text-white bg-store mt-3" value="SIGN UP" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
