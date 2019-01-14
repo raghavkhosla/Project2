@@ -1,0 +1,1079 @@
+<html>
+<head>
+	<title>Single Product</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css" />
+	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+<style>
+.filterDiv 
+{
+  float: left;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+.show 
+{
+  display: block;
+}
+.nav-pills .nav-link.active 
+{
+  background-color: #1bbc9b;
+}
+.our_products img
+{
+  height: 220px;
+}
+h4
+{
+  margin-top: 15px;
+}
+</style>
+
+<script>
+    function change() {
+        let results = Array.from(document.querySelectorAll('.result > div')),
+            modelsChecked = document.querySelectorAll('.filter input.models:checked'),
+            ratedChecked = document.querySelectorAll('.filter input.rated:checked');
+
+if(modelsChecked){
+	results.forEach(function(result) {
+			result.style.display = 'none';
+	});
+}
+
+if(modelsChecked==false){
+	results.forEach(function(result) {
+			result.style.display = 'block';
+	});
+
+
+}
+	  filterModels(modelsChecked);
+        function filterModels(modelsChecked) {
+            results = Array.from(modelsChecked).reduce(function(sum, input) {
+                const attrib = input.getAttribute('rel');
+                return sum.concat(results.filter(function(result) {
+                    return result.classList.contains(attrib);
+                }));
+            }, []);
+        }
+        // Show those filtered results:
+        results.forEach(function(result) {
+            result.style.display = 'block';
+        });
+    }
+    change();
+    </script>
+</head>
+<body>
+
+
+<section id="header1">
+    <div class="container-fluid bg-store">
+        <div class="container p-0">
+            <div class="row pt-0">
+                <div class="col-md-4">
+                    <div class="row">
+
+                        <div class="col-md-6 lang-type">
+                            <div class="dropdown pt-1">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Language
+                                </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">English</a>
+                                        <a class="dropdown-item" href="#">Hindi</a>
+                                        <a class="dropdown-item" href="#">German</a>
+                                        <a class="dropdown-item" href="#">Chinese</a>
+                                        <a class="dropdown-item" href="#">Japanese</a>
+                                        <a class="dropdown-item" href="#">Swedish</a>
+                                        <a class="dropdown-item" href="#">Arabic</a>
+                                        <a class="dropdown-item" href="#">Norwegian</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 curr-type">
+                            <div class="dropdown pt-1">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Currency
+                                </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">INR</a>
+                                        <a class="dropdown-item" href="#">Euro</a>
+                                        <a class="dropdown-item" href="#">CNY</a>
+                                        <a class="dropdown-item" href="#">JPY</a>
+                                        <a class="dropdown-item" href="#">SEK</a>
+                                        <a class="dropdown-item" href="#">DH</a>
+                                        <a class="dropdown-item" href="#">NOK</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 p-0 pl-1">
+                    <ul class="nav justify-content-end demo reglogincont">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="javascript:void();" data-toggle="modal" data-target="#modal1" data-whatever="@getbootstrap">SIGN IN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="javascript:void();" data-toggle="modal" data-target="#modal2" data-whatever="@getbootstrap">SIGN UP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="faq.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="contactus.html">CONTACT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="header2">
+    <div class="container-fluid">
+        <div class="container p-0">
+            <div class="row pt-3">
+                <div class="col-md-3 logo">
+                    <h2><strong style="cursor: pointer;"><a href="index.html" style="text-decoration: none;">E-store</a></strong></h2>
+                </div>
+
+                <div class="col-md-8">
+                    <form class="p-0">
+                        <div class="form-group">
+                            <div class="row p-0">
+                                <div class="col-md-11 m-0 p-0 search_products">
+                                    <input type="text" class="form-control " placeholder="Search for products"  size="100"/>
+                                </div>
+                                <div class="col-md-1 m-0 p-0 search">
+                                    <a href="javascript:void();" class="btn btn-lg"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-1 text-right cart">
+                    <a href="#" class="btn btn-lg"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="header3">
+    <div class="container-fluid bg-store">
+        <div class="container p-0">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="dropdown pt-2 pb-2">
+                    <button class="btn btn-light btn-sm dropdown-toggle text-uppercase p-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product categories
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Electronics</a>
+                            <a class="dropdown-item" href="#">TVs & Appliances</a>
+                            <a class="dropdown-item" href="#">Men</a>
+                            <a class="dropdown-item" href="#">Women</a>
+                            <a class="dropdown-item" href="#">Baby & Kids</a>
+                            <a class="dropdown-item" href="#">Home & Furniture</a>
+                            <a class="dropdown-item" href="#">Sports, Books & More</a>
+                            <a class="dropdown-item" href="#">Offer Zone</a>
+                        </div>
+                </div>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item pl-4">
+                                <a class="nav-link text-white" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link active text-white" href="products.html">PRODUCTS</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link disabled active text-white" href="single_product.html">SINGLE PRODUCT</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link active text-white" href="blog.html">BLOG</a>
+                            </li>
+                            <li class="nav-item pl-4">
+                                <a class="nav-link disabled active text-white" href="checkout.html">CHECKOUT</a>
+                            </li>
+                        </ul>
+                    </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<div class="container mt-4">
+	<div class="row">
+	    <div class="col-md-3 card p-5">
+		    <img src="images/image48.jpeg" class="image-fluid w-100" alt="">
+	    </div>
+	    <div class="col-md-9  border-right border-bottom border-top">
+		    <h2 class="p-1" style="color:#1bbc9b;" >Apple iPhone XR (Black, 64 GB)</h2>
+		    <p cl>137 Ratings & 23 Reviews</p>
+		    <p class="lead">No cost EMI ₹8,545/month. Standard EMI also available. View Plans</p>
+            <p>Get upto ₹14900 off on exchange. Buy with Exchange</p>
+		    <p>Delivery : 2-3 days|Free</p>
+		    <p>Highlights: </p>
+            <ul>
+                <li>64 GB ROM</li>
+                <li>15.49 cm (6.1 inch) Display</li>
+                <li>12MP Rear Camera | 7MP Front Camera</li>
+                <li>A12 Bionic Chip Processor</li>
+            </ul>
+		    <button class="bg-store p-1 border-0 text-white">64GB</button>
+		    <button class="bg-store p-1 border-0 text-white">128GB</button>
+		    <div class="form-group mt-4 mb-4">
+			    <button type="button" class="btn bg-store col-md-4 text-white" name="button">ADD TO CART</button>
+		    </div>  
+	    </div>
+	</div>
+</div>
+
+<div class=" container description border p-0 mt-4">
+	<ul class="nav nav-pills mb-3 border-bottom" id="pills-tab" role="tablist">
+	    <li class="nav-item">
+	        <a class="nav-link  active" id="pills-home-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-home" aria-selected="true">Product Description</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-Specifications" role="tab" aria-controls="pills-profile" aria-selected="false">Specifications</a>
+	    </li>
+	</ul>
+	
+	<div class="tab-content" id="pills-tabContent">
+	    <div class="tab-pane fade p-3 show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+			<h4 class="bg-store p-1 lead text-white">Product Description</h4>
+			<p>The iPhone XR has arrived to scintillate our senses with a host of features, such as the Liquid Retina Display, a faster Face ID, and a powerful A12 Bionic Chip. Whether it’s that picture-perfect portrait shot or a jaw-dropping HDR selfie, the cameras of the iPhone XR will continue to amaze you with their brilliance. Now, experience beauty, in every way.</p>
+			<h4 class="bg-store p-1 lead text-white">Liquid Retina Display - Beauty Awaits Your Eyes</h4>
+		    <p>	What does the display of the iPhone XR smartphone have in store for you? Its advanced 15.49 cm (6.1) Liquid Retina Display, featuring an innovative backlight technology, allows the screen to stretch to the corners, thereby exposing you to colorful visuals from one edge to another. It also packs enhanced color accuracy and a wide color gamut for delightful visuals.</p>
+		    <h4 class="bg-store p-1 lead text-white">Exceptional Design - Hold It to Believe It</h4>
+			<p>Get set to be amazed by this phone’s design, as it comprises one of the most durable front displays. A special Apple-designed alloy has been utilized to make the structural bands, so as to complement the look of the back glass.</p>
+		</div>
+	    <div class="tab-pane fade p-3" id="pills-Specifications" role="tabpanel" aria-labelledby="pills-Specifications-tab">
+			
+			<h4 class="bg-store p-1 lead text-white">General</h4>
+			<hr>
+				<table border=1>
+				    <tbody>
+			            <tr>
+			                <td>In The Box</td>
+		                    <td>
+			                    <ul>
+			                        <li>Handset, EarPods with Lightning Connector, Lightning to USB Cable, USB Power Adapter, Documentation</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Model Number</td>
+			                <td>
+			                    <ul>
+			                        <li>MRY42HN/A</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Model Name</td>
+			                <td>
+			                    <ul>
+			                        <li>iPhone XR</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Color</td>
+			                <td>
+			                    <ul>
+			                        <li>Black</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Browse Type</td>
+			                <td>
+			                    <ul>
+			                        <li>Smartphones</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td >SIM Type</td>
+			                <td>
+			                    <ul>
+			                        <li>Dual Sim</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Hybrid Sim Slot</td>
+			                <td>
+			                    <ul>
+			                        <li>No</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Touchscreen</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>OTG Compatible</td>
+			                <td>
+			                    <ul>
+			                        <li>No</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Sound Enhancements</td>
+			                <td>
+			                    <ul>
+			                        <li>2 x Built-in Stereo Speaker, 2 x Built-in Microphone, Audio Playback - Wider Stereo Playback, User-configurable Maximum Volume Limit</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Display Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Display Size</td>
+			                <td>
+			                    <ul>
+			                        <li>15.49 cm (6.1 inch)</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Resolution</td>
+			                <td>
+			                    <ul>
+			                        <li>1792 x 828 pixels</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>GPU</td>
+			                <td>
+			                    <ul>
+			                        <li>Apple-designed GPU - 4-core, Graphics Performance - Upto 50% Faster than A11 Bionic, Metal 2 Optimised, 3D, Graphics-intensive Gameplay, Faster and More Fluid</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Display Type</td>
+			                <td>
+			                    <ul>
+			                        <li>All-screen LCD Multi-touch Display with IPS Technology</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>HD Game Support</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Other Display Features</td>
+			                <td>
+			                    <ul>
+			                        <li>1400:1 Contrast Ratio (Typical), True Tone Display (Six-channel Light Sensor), Wide Colour Display (P3), 625 nits Maximum Brightness (Typical), Fingerprint-resistant Oleophobic Coating, Support for Display of Multiple Languages and Characters Simultaneously, Liquid Retina HD Display, Tap to Wake, Wide Colour Gamut,</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Os &amp; Processor Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Operating System</td>
+			                <td>
+			                    <ul>
+			                        <li>iOS 12</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Processor Type</td>
+			                <td>
+			                    <ul>
+			                        <li>A12 Bionic Chip</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Memory &amp; Storage Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Internal Storage</td>
+			                <td>
+			                    <ul>
+			                        <li>64 GB</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Camera Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+		                    <td>Primary Camera Available</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Primary Camera</td>
+			                <td>
+			                    <ul>
+			                        <li>12MP</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Primary Camera Features</td>
+			                <td>
+			                    <ul>
+			                        <li>Wide-angle Camera, f/1.8 Aperture, Portrait Mode with Advanced Bokeh and Depth Control, Portrait Lighting with Three Effects (Natural, Studio, Contour), Optical Image Stabilisation, Six-element Lens, Panorama (Upto 63MP), Sapphire Crystal Lens Cover, Backside Illumination Sensor, Hybrid IR Filter, Autofocus with Focus Pixels, Tap to Focus with Focus Pixels, Smart HDR for Photos, Wide Colour Capture for Photos and Live Photos, Local Tone Mapping, Advanced Red-eye Correction, Exposure Control, Auto Image Stabilisation, Burst Mode, Timer Mode, Photo Geotagging, Image Formats Captured: HEIF and JPEG, Rear Camera AR, More Low-light Detail, Sharper Action Shots, 4K Video and Wider Stereo Playback, Face Detection, Facial Landmarking, Depth Mapping, Portrait Lighting, 2x Faster Sensor, 4K Video Upto 60 fps, All-new Depth Control</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Secondary Camera Available</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Secondary Camera</td>
+			                <td>
+			                    <ul>
+			                        <li>7MP</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Secondary Camera Features</td>
+			                <td>
+			                    <ul>
+			                        <li>TrueDepth Camera - f/2.2 Aperture, Portrait Mode with Advanced Bokeh and Depth Control, Portrait Lighting with Five Effects (Natural, Studio, Contour, Stage, Stage Mono), Animoji and Memoji, Smart HDR for Photos, Cinematic Video Stabilisation (1080p and 720p), Wide Colour Capture for Photos and Live Photos, Backside Illumination Sensor, Auto Image Stabilisation, All-new Video Stabilisation, Burst Mode, Exposure Control, Timer Mode, Face ID - Enabled by TrueDepth Camera for Facial Recognition, Front Camera AR, Enhanced Portrait Mode Selfies</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Flash</td>
+			                <td>
+			                    <ul>
+			                        <li>Rear Quad LED True Tone Flash with Slow Sync and Front Retina Flash</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>HD Recording</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Full HD Recording</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Video Recording</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Video Recording Resolution</td>
+			                <td>
+			                    <ul>
+			                        <li>2160p</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Digital Zoom</td>
+			                <td>
+			                    <ul>
+			                        <li>Digital Zoom Upto 5x, Video Recording - Digital Zoom Upto 3x</li>
+			                </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Frame Rate</td>
+			                <td>
+			                    <ul>
+			                        <li>Rear Camera - 4K Video Recording at 24 fps, 30 fps or 60 fps, 1080p HD Video Recording at 30 fps or 60 fps, 720p HD Video Recording at 30 fps, Extended Dynamic Range for Video Upto 30 fps, Slow-motion Video Support for 1080p at 120 fps or 240 fps, TrueDepth Camera - 1080p HD Video Recording at 30 fps or 60 fps, Extended Dynamic Range for Video at 30 fps</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+
+		    <h4 class="bg-store p-1 lead text-white">Call Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Video Call Support</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Phone Book</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+
+		     <h4 class="bg-store p-1 lead text-white">Connectivity Features</h4>
+		     <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Network Type</td>
+			                <td>
+			                    <ul>
+			                        <li>4G, 3G, 2G</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Supported Networks</td>
+			                <td>
+			                    <ul>
+			                        <li>4G LTE, UMTS, GSM, WCDMA</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Internet Connectivity</td>
+			                <td>
+			                    <ul>
+			                        <li>4G, 3G, Wi-Fi</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>3G</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Pre-installed Browser</td>
+			                <td>
+			                    <ul>
+			                        <li>Safari</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Bluetooth Support</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Bluetooth Version</td>
+			                <td>
+			                    <ul>
+			                        <li>5.0</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Wi-Fi</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Wi-Fi Version</td>
+			                <td>
+			                    <ul>
+			                        <li>802.11ac (2x2 MIMO)</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>NFC</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Map Support</td>
+			                <td>
+			                    <ul>
+			                        <li>Maps</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>GPS Support</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Other Details</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Smartphone</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>SIM Size</td>
+			                <td>
+			                    <ul>
+			                        <li>Nano SIM and eSIM</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Removable Battery</td>
+			                <td>
+			                    <ul>
+			                        <li>No</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>SMS</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Graphics PPI</td>
+			                <td>
+			                    <ul>
+			                        <li>326 PPI</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Predictive Text Input</td>
+			                <td>
+			                    <ul>
+			                        <li>Yes</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Sensors</td>
+			                <td>
+			                    <ul>
+			                        <li>Face ID, Barometer, Three-axis Gyro, Accelerometer, Proximity Sensor, Ambient Light Sensor</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Supported Languages</td>
+			                <td>
+			                    <ul>
+			                        <li>Multi Languages Support</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Games</td>
+				            <td>
+				                <ul>
+				                    <li>Yes</li>
+				                </ul>
+				            </td>
+			            </tr>
+			            <tr>
+			                <td>Other Features</td>
+			                <td>
+			                    <ul>
+			                        <li>Next-generation Neural Engine, Video Recording - Optical Image Stabilisation for Video, Quad LED True Tone Flash, Time-lapse Video with Stabilisation, Cinematic Video Stabilisation (1080p and 720p), Continuous Autofocus Video, Take 8MP Still Photos while Recording 4K Video, Playback Zoom, Video Geotagging, Video Formats Recorded: HEVC and H.264, Stereo Recording, NFC with Reader Mode, Express Cards with Power Reserve, Location - Digital Compass, Cellular, iBeacon Microlocation, Video Playback - Supports Dolby Vision and HDR10 Content, External Buttons and Connectors - Volume Up / Down, Ring / Silent, Side Button, Lightning Connector, Accessibility - VoiceOver, Zoom, Magnifier, RTT and TTY Support, Siri and Dictation, Type to Siri, Switch Control, Closed Captions, AssistiveTouch, Speak Screen, Rating for Hearing Aids - M3, T4, Multi Languages Support - QuickType Keyboard Support, QuickType Keyboard Support with Predictive Input, Siri, Dictation, Definition Dictionary Support, Thesaurus, Bilingual Dictionary Support with English, Spellcheck, Splash, Water and Dust Resistant, No Home Button, Apple-designed CPU - 2 Performance Cores Upto 15% Faster than A11 Bionic, 4 Efficiency Cores Upto 50% Lower Power Usage than A11 Bionic, Apple-designed Neural Engine - 8-core Architecture, 5 Trillion Operations Per Second, Core ML Runs Upto 9x Faster than A11 Bionic, Enhanced ISP, Advanced Face ID - Adaptive Recognition, Unlock in an Instant, Log-in to Your Apps and Accounts, Dot Projector (Unique Facial Map More than 30000 Invisible Dots), Infrared Camera, Flood Illuminator, End-to-end Encryption, Ongoing Security Updates, Limited Advertisers Tracking, Powered by Renewable Energy, Control iPhone with a Switch, Listen While You Read or Type, Easier-to-read Type, Privacy in Apps, iCloud, Copy and Paste between Devices</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Important Apps</td>
+			                <td>
+			                    <ul>
+			                        <li>Built-in Apps - Camera, Photos, Health, Messages, Phone, FaceTime, Mail, Music, Wallet, Safari, Maps, Siri, Calendar, iTunes Store, App Store, Notes, Contacts, Books, Home, Weather, Reminders, Clock, Videos, Stocks, Calculator, Voice Memos, Compass, Podcasts, Watch, Tips, Find My iPhone, Find My Friends, Settings, Files, Measure, Free Apps from Apple - iMovie, Pages, Numbers, Keynote, iTunes U, GarageBand, Apple TV Remote, iTunes Remote, Music Memos, Clips, Shortcuts</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Multimedia Features</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			            <tr>
+			                <td>Audio Formats</td>
+			                <td>
+			                    <ul>
+			                        <li>AAC-LC, HE-AAC, HE-AAC v2, Protected AAC, MP3, Linear PCM, Apple Lossless, FLAC, Dolby Digital (AC-3), Dolby Digital Plus (E-AC-3) and Audible (Formats 2, 3, 4, Audible Enhanced Audio, AAX and AAX+)</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>Video Formats</td>
+			                <td>
+			                    <ul>
+			                        <li>HEVC, H.264, MPEG-4 Part 2 and Motion JPEG</li>
+			                    </ul>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+
+		    <h4 class="bg-store p-1 lead text-white">Dimensions</h4>
+		    <hr>
+			    <table border=1>
+			        <tbody>
+			                <tr>
+			                    <td>Width</td>
+			                    <td>
+			                        <ul>
+			                            <li>75.7 mm</li>
+			                        </ul>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td>Height</td>
+			                    <td>
+			                        <ul>
+			                            <li>150.9 mm</li>
+			                        </ul>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td>Depth</td>
+			                    <td>
+			                        <ul>
+			                            <li>8.3 mm</li>
+			                        </ul>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td>Weight</td>
+			                    <td>
+			                        <ul>
+			                            <li>194 g</li>
+			                        </ul>
+			                    </td>
+			                </tr>
+			            </tbody>
+			        </table>
+			
+			    <h4 class="bg-store p-1 lead text-white">Warranty</h4>
+			    <hr>
+			        <table border=1>
+			            <tbody>
+			                <tr>
+			                    <td>Warranty Summary</td>
+			                    <td>
+			                        <ul>
+			                            <li >Brand Warranty of 1 Year</li>
+			                        </ul>
+			                    </td>
+			                </tr>
+			            </tbody>
+			        </table>
+        </div>
+    </div>
+</div>
+
+
+<section id="footer1">
+    <div class="container-fluid pb-4 mt-5 bg-store">
+        <div class="container">
+            <div class="row pt-4">
+
+                <div class="col-md-3">
+                    <h5 class="text-dark">HELP</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="contactus.html" class="text-light">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="faq.html" class="text-light">FAQs</a>
+                            </li>
+                        </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-dark">POLICY</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="return.html" class="text-light">Return Policy</a>
+                            </li>
+                            <li>
+                                <a href="term&condition.html" class="text-light">Terms of Use</a>
+                            </li>
+                        </ul>
+                </div>
+
+                <div class="col-md-3 social-icon">
+                    <h5 class="text-dark">SOCIAL</h5>
+                        <ul class="p-0" style="list-style: none;">
+                            <li>
+                                <a href="#" class="text-light "><i class="fa fa-facebook mr-2"></i>Facebook</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light text-center"><i class="fa fa-twitter mr-1"></i>Twitter</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-instagram mr-1"></i> Instagram</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-google mr-1"></i> Google</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light"><i class="fa fa-newspaper-o"></i> Press</a>
+                            </li>
+                        </ul>
+                </div>
+
+                 <div class="col-md-3">
+                    <h5 class="text-dark">Registered Office Address</h5>
+                    <p class="text-light">
+                        E-Store Private Limited,<br/>
+                        Sector 42D, Chandigarh - 160042
+                        India<br/>
+                        CIN : U552551109KA20 <br/>
+                        Telephone: <a href="#" class="text-white">0000-005-055</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="footer2">
+    <div class="container-fluid bg-store">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-md-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <i class="fa fa-briefcase fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Sell Here</a>
+                        </li>
+                        <li class="list-inline-item" >
+                            <i class="fa fa-star fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Advertise</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="fa fa-gift fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Gift Cards</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="fa fa-question-circle fa-2x"></i>&nbsp;
+                            <a href="#" class="text-light">Help</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-7 text-right pt-2 pay-mode">
+                    <img class="text-right img-fluid" src="images/image4.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter your email and password to<strong> sign in</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                         <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email address">EMAIL*</label>
+                                    <input type="text" class="form-control" placeholder="Enter your email address here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">PASSWORD*</label>
+                                    <input type="password" class="form-control" placeholder="Enter your password here... " />
+                                </div>
+
+                                <a href="#" class="forgpwd">Forgot password? Click here.</a>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <input type="submit" class="btn bg-store btn-lg text-white mt-3" value="SIGN IN" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel1">Create an account to<strong> sign up</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="first name">FIRST NAME*</label>
+                                    <input type="text" class="form-control" placeholder="Your first name here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="last name">LAST NAME*</label>
+                                    <input type="text" class="form-control" placeholder="Your last name here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email id">EMAIL*</label>
+                                    <input type="text" class="form-control" placeholder="Your email address here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mobile number">MOBILE*</label>
+                                    <input type="text" class="form-control" placeholder="Your mobile number here " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">RESIDENTIAL ADDRESS*</label>
+                                    <input type="text" class="form-control" placeholder="Your home address here " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="country">COUNTRY*</label>
+                                    <input type="text" class="form-control" placeholder="Your country here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="user id">USER ID*</label>
+                                    <input type="text" class="form-control" placeholder="User id here..." />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">CREATE PASSWORD*</label>
+                                    <input type="text" class="form-control" placeholder="Set new password here... " />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">RETYPE PASSWORD*</label>
+                                    <input type="text" class="form-control" placeholder="Confirm password here... " />
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-md-12 text-center">
+                                        <input type="submit" class="btn btn-lg text-white bg-store mt-3" value="SIGN UP" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
