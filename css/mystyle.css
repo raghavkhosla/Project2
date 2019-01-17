@@ -46,8 +46,8 @@ body
  padding: 20px 15px;
  text-align: center;
 }
- .carousel-control-prev, .carousel-control-next
- {
+.carousel-control-prev, .carousel-control-next
+{
  opacity: 1 !important;
 }
 #trending_products .carousel-control-prev, .carousel-control-next
@@ -145,6 +145,10 @@ font-family: karla;
 .lang-type , .curr-type
 {
  text-align: center;
+}
+.demo .nav-link
+{
+ font-size: 12px;
 }
 .reglogincont
 {
